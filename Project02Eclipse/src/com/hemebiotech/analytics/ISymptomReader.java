@@ -17,7 +17,7 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> getSymptoms ();
+	List<String> getSymptoms (String filepath);
 	
 	/**
 	 * Count the occurrences of a String in a list and map them with their count, then order the list alphabetically.
