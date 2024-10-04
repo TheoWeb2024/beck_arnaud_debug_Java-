@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,5 +17,11 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> GetSymptoms ();
+	List<String> getSymptoms ();
+	
+	/**
+	 * Count the occurrences of a String in a list and map them with their count, then order the list alphabetically.
+	 * @return A String List where every unique line in the input is a String mapped to the count of its occurrences
+	 */
+	ArrayList<String> analyze(List<String> list);
 }
