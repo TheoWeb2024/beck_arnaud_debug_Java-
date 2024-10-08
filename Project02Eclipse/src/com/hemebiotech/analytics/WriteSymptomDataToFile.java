@@ -14,19 +14,21 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	public WriteSymptomDataToFile() {
 		
 	}
-
-	public void writeSymptoms(List<String> var1) throws IOException {
+	/**
+	 *  write symptoms in a file named result.out
+	 */
+	public void writeSymptoms(List<String> elementsOfList) throws IOException {   
 	
-	        BufferedWriter var2 = new BufferedWriter(new FileWriter("result.out"));
-	        Iterator var3 = var1.iterator();
+	        BufferedWriter bufferedContent = new BufferedWriter(new FileWriter("result.out"));      
+	        Iterator existingElement = elementsOfList.iterator();            
 
-	        while(var3.hasNext()) {
-	            String var4 = (String)var3.next();
-	            var2.write(var4);
-	            var2.newLine();
+	        while(existingElement.hasNext()) {
+	            String resultsOfProcessedList = (String)existingElement.next();       
+	            bufferedContent.write(resultsOfProcessedList);      
+	            bufferedContent.newLine();
 	        }
 
-	        var2.close();
-	    }
+	        bufferedContent.close();
+	 }
 		
 }

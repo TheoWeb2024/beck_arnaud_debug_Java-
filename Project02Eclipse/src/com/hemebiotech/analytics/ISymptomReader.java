@@ -23,5 +23,5 @@ public interface ISymptomReader {
 	 * Count the occurrences of a String in a list and map them with their count, then order the list alphabetically.
 	 * @return A String List where every unique line in the input is a String mapped to the count of its occurrences
 	 */
-	ArrayList<String> analyze(List<String> list);
+	ArrayList<String> analyze(List<String> list);        
 }

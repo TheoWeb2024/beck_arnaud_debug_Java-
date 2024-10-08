@@ -15,6 +15,6 @@ public interface ISymptomWriter {
 	 * which writes symptoms and quantities in a folder named result.out
 	 * @throws IOException 
 	 */
-	public void writeSymptoms(List<String> var1) throws IOException;
+	public void writeSymptoms(List<String> elementsOfList) throws IOException;       
 	
 }

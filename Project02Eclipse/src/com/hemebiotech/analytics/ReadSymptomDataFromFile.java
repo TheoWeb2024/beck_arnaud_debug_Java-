@@ -15,12 +15,16 @@ import java.util.TreeMap;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	
-	public ReadSymptomDataFromFile () { // default constructor 
+	public ReadSymptomDataFromFile () { 
 		
 	}
 	
 	@Override
-	public List<String> getSymptoms(String filepath) {
+	/**
+	 *  get symptoms from file 
+	 */
+	public List<String> getSymptoms(String filepath) 
+	{
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {
@@ -43,27 +47,40 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	
 	/**
 	 * @param list: A list of Strings containing the symptoms one by per line
+	 * itemOfList : it's one element of the list of symptoms
 	 */
 	@Override
-	public ArrayList<String> analyze(List<String> list)
+	/**
+	 *  analyze data coming from the list 
+	 */
+	public ArrayList<String> analyze(List<String> list)        
 	{
-		TreeMap<String, Integer> result = new TreeMap<>();
+		TreeMap<String, Integer> result = new TreeMap<>();      
 
-		for (String l : list)
+		for (String itemOfList : list)
 		{
-			l = l.toLowerCase();
-			if (result.containsKey(l))
-				result.put(l, result.get(l) + 1);
+			itemOfList = itemOfList.toLowerCase();
+			if (result.containsKey(itemOfList))
+			 /**
+			  * helps us to add one occurrence more and more until completed
+			  */
+				result.put(itemOfList, result.get(itemOfList) + 1);        
 			else
 			{
-				result.put(l, 1);
+			 /**
+			  * answer when there is only one occurrence for a symptom
+			  */
+				result.put(itemOfList, 1);                                
 			}
 		}
 
 		ArrayList<String> listWithCount = new ArrayList<>();
-		for (Map.Entry m : result.entrySet())
+		 /**
+		  * allows to ordinate by alphabetic order
+		  */
+		for (Map.Entry mapElements : result.entrySet())                   
 		{
-			listWithCount.add(m.getKey() + " = " + m.getValue());
+			listWithCount.add(mapElements.getKey() + " = " + mapElements.getValue());     
 		}
 		return listWithCount;
 	}
