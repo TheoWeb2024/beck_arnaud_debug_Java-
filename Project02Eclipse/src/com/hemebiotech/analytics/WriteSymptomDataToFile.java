@@ -8,14 +8,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Write in an output file after one analyze.
+ */
 public class WriteSymptomDataToFile implements ISymptomWriter{
 
-	
-	public WriteSymptomDataToFile() {
-		
-	}
 	/**
-	 *  write symptoms in a file named result.out
+	 * Write symptoms in a file named result.out.
+	 * 
+	 * @param elementsOfList: elements which have been analyzed and will be written 
 	 */
 	public void writeSymptoms(List<String> elementsOfList) throws IOException {   
 	

@@ -9,8 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Simple brute force implementation
- *
+ * Simple brute force implementation.
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
@@ -19,10 +18,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 	}
 	
-	@Override
+
 	/**
-	 *  get symptoms from file 
+	 *  Get symptoms from file.
+	 *  
+	 *  @param filepath: it's a file containing strings with symptoms line per line
 	 */
+	@Override
 	public List<String> getSymptoms(String filepath) 
 	{
 		ArrayList<String> result = new ArrayList<String>();
@@ -46,13 +48,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	/**
-	 * @param list: A list of Strings containing the symptoms one by per line
-	 * itemOfList : it's one element of the list of symptoms
+	 * @param list: a list of Strings containing the symptoms one by per line
+	 * 
+	 * itemOfList: it's one element of the list of symptoms
 	 */
 	@Override
-	/**
-	 *  analyze data coming from the list 
-	 */
 	public ArrayList<String> analyze(List<String> list)        
 	{
 		TreeMap<String, Integer> result = new TreeMap<>();      
@@ -61,23 +61,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		{
 			itemOfList = itemOfList.toLowerCase();
 			if (result.containsKey(itemOfList))
-			 /**
-			  * helps us to add one occurrence more and more until completed
-			  */
+				//helps us to add one occurrence more and more until completed
 				result.put(itemOfList, result.get(itemOfList) + 1);        
 			else
 			{
-			 /**
-			  * answer when there is only one occurrence for a symptom
-			  */
+				//answer when there is only one occurrence for a symptom
 				result.put(itemOfList, 1);                                
 			}
 		}
 
 		ArrayList<String> listWithCount = new ArrayList<>();
-		 /**
-		  * allows to ordinate by alphabetic order
-		  */
+		//allows to ordinate by alphabetic order
 		for (Map.Entry mapElements : result.entrySet())                   
 		{
 			listWithCount.add(mapElements.getKey() + " = " + mapElements.getValue());     

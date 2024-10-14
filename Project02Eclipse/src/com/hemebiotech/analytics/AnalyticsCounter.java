@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
-
+/**
+ * @author: Arnaud B.
+ */
 public class AnalyticsCounter {        
 	
 	
@@ -15,19 +17,13 @@ public class AnalyticsCounter {
 		
 		try
 		{
-			/**
-			 * Get list of symptoms
-			 */
+			//Get list of symptoms
 			List<String> symptomsList= symptomReader.getSymptoms("symptoms.txt");
 
-			/**
-			 * Count symptoms and organize them alphabetically
-			 */
+			//Count symptoms and organize them alphabetically
 			symptomsList = symptomReader.analyze(symptomsList);
 
-			/**
-			 * Output Symptoms list
-			 */
+			//Output Symptoms list
 			symptomWriter.writeSymptoms(symptomsList);
 		}
 		catch (Exception e)
